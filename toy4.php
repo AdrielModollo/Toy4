@@ -5,6 +5,8 @@ function converteNome($nome) {
     return ($nome);
 }
 
+
+
 function converteNomeParaEmail($nome) {
     global $emailsGerados;
     $ultimoNome = substr(strrchr($nome, ' '), 1);   $emailSufixo = '@empresax.com.br';
@@ -19,6 +21,12 @@ function converteNomeParaEmail($nome) {
     array_push($emailsGerados, $email);
     return $email;
 }
+
+function converteFilial($filial) {
+    $filial = ucfirst($filial);
+    return ($filial);
+}
+
 
 
 $filiais = [
@@ -92,7 +100,7 @@ $emailsGerados = [];
             <th><h3>Adamantina</h3></th>
         </tr>
 
-            <tr id ="trAdamantina">
+            <tr id ="trAdamantina" >
                 <th>Nome</th>  
                 <th>E-mail</th>
                 <th>Filial</th>
@@ -102,7 +110,7 @@ $emailsGerados = [];
 
             <tr>       
                 <td><?php echo converteNome($filial);  ?></td>
-                <td><a  href="mailto:<?= converteNomeParaEmail($filial) ?> "> <?= converteNomeParaEmail($filial) ?></a></td>
+                <td> <a  href="mailto:<?=  $email = converteNomeParaEmail($filial); ?>  "> <?php echo $email ?> </a></td>
                 <td><?php echo 'Adamantina';  ?> </td>
             </tr>
     <?php endforeach; ?>
@@ -123,7 +131,7 @@ $emailsGerados = [];
 
             <tr>       
                 <td><?php echo converteNome($filial);  ?></td>
-                <td><a  href="mailto:<?= "" ?>  "><?php echo converteNomeParaEmail($filial) ?> </a></td>
+                <td><a  href="mailto:<?=  $email = converteNomeParaEmail($filial); ?>  "> <?php echo $email ?> </a></td>
                 <td><?php echo 'Borborema';  ?> </td>
             </tr>
     <?php endforeach; ?>  
@@ -145,7 +153,7 @@ $emailsGerados = [];
         
             <tr>       
                 <td><?php echo converteNome($filial);  ?></td>
-                 <td><a  href="mailto:<?= converteNomeParaEmail($filial) ?>  "> <?php echo converteNomeParaEmail($filial) ?></a></td>
+                 <td><a  href="mailto:<?=  $email = converteNomeParaEmail($filial); ?>  "> <?php echo $email ?> </a></td>
                 <td><?php echo 'Cajamar'; ?> </td>
     </tr>
     <?php endforeach; ?>   
